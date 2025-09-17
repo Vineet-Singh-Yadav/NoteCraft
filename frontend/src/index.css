@@ -1,8 +1,9 @@
 body{
-  background-color: #84005a;
+  background-color:#000000 ;
 background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
 }
 
 i{
     cursor: pointer;
 }
+
