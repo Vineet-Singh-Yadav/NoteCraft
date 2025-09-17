@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import NoteContext from '../contextApi/NoteContextApi/NoteContext'
 import NoteItem from './NoteItem';
-import AddNote from './AddNote';
 import { useNavigate } from 'react-router-dom';
 
 export default function Notes(props) {
@@ -36,10 +35,19 @@ export default function Notes(props) {
     const handleChange = (e) => {
         setNote({ ...note, [e.target.name]: e.target.value })
     }
-
+ 
     return (
         <>
-            <AddNote showAlert={props.showAlert} />
+          
+           <button
+                type="button"
+                className="btn btn-primary rounded-circle position-fixed fab-btn"
+                style={{ bottom: "20px", right: "20px", width: "60px", height: "60px", fontSize: "30px", padding: "0" }}
+                onClick={() => navigate("/addnote")}
+                title="Add Note"
+            >
+                +
+            </button>
 
             <button type="button" ref={ref} className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Launch demo modal
@@ -76,7 +84,7 @@ export default function Notes(props) {
             </div>
 
             <div className='row my-3'>
-                <h2>Here are your notes – safe, synced, and ready to edit</h2>
+                <h2>Here are your notes – safe, synced, and ready to edit...</h2>
                 <div className="container mx-2">
                 {notes.length === 0 && 'No notes to display'}
                 </div>

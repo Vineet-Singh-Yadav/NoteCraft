@@ -1,7 +1,9 @@
 import React, { useContext, useState } from 'react'
 import NoteContext from '../contextApi/NoteContextApi/NoteContext'
+import { useNavigate } from 'react-router-dom';
 
 export default function AddNote(props) {
+    let navigate = useNavigate();
     const context = useContext(NoteContext);
     const { addNote} = context;
     const [note, setNote] = useState({title: "", description: "", tag: ""});
@@ -10,7 +12,8 @@ export default function AddNote(props) {
         e.preventDefault();
         addNote(note.title, note.description, note.tag);
         setNote({title: "", description: "", tag: ""});
-        props.showAlert("Added Successfully","success");
+        props.showAlert("Note added Successfully","success");
+        navigate("/");
     }
 
     const handleChange = (e) => {
@@ -19,7 +22,7 @@ export default function AddNote(props) {
     
     return (
         <div className='container my-3'>
-            <h2>What’s on your mind? Add a new note</h2>
+            <h2>What’s on your mind? Add a new note...</h2>
             <form>
                 <div className="mb-3">
                     <label htmlFor="title" className="form-label">Title</label>

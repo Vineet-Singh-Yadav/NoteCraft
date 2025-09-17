@@ -42,4 +42,17 @@
   color: #888;
 }
 
+.signup-card {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* shadow = popping out effect */
+  width: 100%;
+  max-width: 450px; /* keeps form compact */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.signup-card:hover {
+  transform: translateY(-5px); /* small lift effect on hover */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
 
